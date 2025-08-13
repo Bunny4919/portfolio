@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KONATHAM GNANESHWAR REDDY | Portfolio</title>
+  <meta name="description" content="KONATHAM GNANESHWAR REDDY's portfolio — aspiring computer science engineer, web developer & creative problem solver." />
+  <style>
+    :root {
+      --primary-bg: #121212;
+      --accent: #00adb5;
+      --nav-bg: #1e1e1e;
+      --text-main: #f5f5f5;
+      --footer-color: #888;
+      --box-radius: 28px;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    *::-webkit-scrollbar {
+      display: none;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background-color: var(--primary-bg);
+      color: var(--text-main);
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    nav {
+      background-color: var(--nav-bg);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.13);
+    }
+    nav h1 {
+      font-size: 1.8em;
+      color: var(--accent);
+      letter-spacing: 1px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 500;
+      cursor: pointer;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background 0.3s, color 0.3s;
+    }
+    nav ul li a.active,
+    nav ul li a:hover,
+    nav ul li a:focus {
+      background-color: #03dac6;
+      color: var(--primary-bg);
+      outline: none;
+    }
+    main {
+      max-width: 1200px;
+      margin: 100px auto 40px;
+      padding: 20px;
+      min-height: 60vh;
+      flex: 1 0 auto;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .section-wrapper {
+      min-height: 100vh;
+      width: 100vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      opacity: 0;
+      transform: translateY(60px);
+      transition: opacity 0.4s cubic-bezier(.33,.7,.6,1), transform 0.4s cubic-bezier(.33,.7,.6,1);
+    }
+    .section-wrapper.visible {
+      opacity: 1;
+      transform: translateY(0);
+      z-index: 2;
+    }
+    .section-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100vw;
+      min-height: 70vh;
+      text-align: center;
+    }
+    .section-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .section-image img {
+      width: 85vw;
+      max-width: 320px;
+      max-height: 320px;
+      border-radius: 50%;
+      border: 4px solid var(--accent);
+      box-shadow: 0 0 18px rgba(0,173,181,0.24);
+      object-fit: cover;
+      background: #212121;
+      margin: 0 auto;
+      display: block;
+    }
+    .section-text > * {
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .section-text h2,
+    .section-text h3 {
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+    .section-text ul {
+      margin-left: 20px;
+      margin-bottom: 16px;
+      display: inline-block;
+      text-align: left;
+    }
+    .section-text li {
+      margin-bottom: 8px;
+      font-size: 1.08rem;
+    }
+    .section-text p {
+      font-size: 1rem;
+      color: #ccc;
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+    .hire-button {
+      display: inline-block;
+      background-color: var(--accent);
+      color: white;
+      padding: 12px 32px;
+      border-radius: var(--box-radius);
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-top: 24px;
+      transition: background 0.2s;
+    }
+    .hire-button:hover {
+      background-color: #03dac6;
+    }
+    #skills .section-image,
+    #projects .section-image,
+    #internships .section-image,
+    #contact .section-image {
+      display: none !important;
+    }
+    @media (max-width: 900px) {
+      .section-content {
+        width: 100vw;
+        min-height: 90vh;
+        padding: 0 2vw;
+      }
+      .section-image img {
+        width: 93vw;
+        max-width: 250px;
+      }
+    }
+    @media (max-width: 600px) {
+      nav {
+        padding: 13px 8px;
+      }
+      nav h1 {
+        font-size: 1.2em;
+      }
+      .section-content {
+        padding: 18px 2vw;
+      }
+    }
+    footer {
+      flex-shrink: 0;
+      text-align: center;
+      padding: 20px;
+      background-color: var(--nav-bg);
+      color: var(--footer-color);
+      font-size: 0.98rem;
+    }
+  </style>
+</head>
+<body>
+  <nav aria-label="Main navigation">
+    <h1>Gnaneshwar.dev</h1>
+    <ul>
+      <li><a href="#about" class="nav-link active" data-target="about">About</a></li>
+      <li><a href="#skills" class="nav-link" data-target="skills">Skills</a></li>
+      <li><a href="#projects" class="nav-link" data-target="projects">Projects</a></li>
+      <li><a href="#internships" class="nav-link" data-target="internships">Internships</a></li>
+      <li><a href="#contact" class="nav-link" data-target="contact">Contact Info</a></li>
+    </ul>
+  </nav>
+  <main>
+    <section class="section-wrapper" id="about" tabindex="-1" aria-label="About">
+      <div class="section-content">
+        <div class="section-image">
+          <img src="me4.jpg" alt="Photo of Konatham Gnaneshwar Reddy" loading="lazy" width="320" height="320" />
+        </div>
+        <div class="section-text">
+          <h2>KONATHAM GNANESHWAR REDDY</h2>
+          <p style="font-style:italic; color:#8ff3fb;">
+            Aspiring Computer Science Engineer &nbsp;|&nbsp; Web Developer &nbsp;|&nbsp; Creative Problem Solver
+          </p>
+          <p>
+            Driven and detail-oriented engineering student passionate about harnessing technology to develop innovative solutions. Skilled in web development and committed to continuous growth through hands-on experience and collaborative learning.
+          </p>
+          <a href="#contact" class="hire-button">Hire Me</a>
+        </div>
+      </div>
+    </section>
+    <section class="section-wrapper" id="skills" tabindex="-1" aria-label="Skills">
+      <div class="section-content">
+        <div class="section-text">
+          <h3>Technical Skills</h3>
+          <ul>
+            <li>HTML, CSS, JavaScript</li>
+            <li>Java, Python</li>
+            <li>Data Structures, DBMS</li>
+            <li>OOP through Java</li>
+          </ul>
+          <h3>Soft Skills</h3>
+          <ul>
+            <li>Teamwork</li>
+            <li>Communication</li>
+            <li>Problem-solving</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="section-wrapper" id="projects" tabindex="-1" aria-label="Projects">
+      <div class="section-content">
+        <div class="section-text">
+          <h3>Featured Projects</h3>
+          <ul>
+            <li><strong>Multilingual AI Converter:</strong> Converts text into audio/video. Finalist in Swecha Hackathon.</li>
+            <li><strong>AI Mail Chatbot:</strong> Auto-generates email replies using NLP.</li>
+            <li><strong>Library Management System:</strong> DBMS-powered book tracker.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="section-wrapper" id="internships" tabindex="-1" aria-label="Internships & Hackathons">
+      <div class="section-content">
+        <div class="section-text">
+          <h3>Internships & Hackathons</h3>
+          <ul>
+            <li>Swecha Telangana Hackathon – Finalist</li>
+            <li>Cyberstrike24 Participant</li>
+            <li>IBM – AI Agent Role</li>
+            <li>CodeSoft – Web Development Internship</li>
+          </ul>
+          <h3>Certifications</h3>
+          <ul>
+            <li>NPTEL – DBMS, Data Science, OOPs with Java</li>
+            <li>Forage – TATA Cybersecurity, AWS Architecture</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="section-wrapper" id="contact" tabindex="-1" aria-label="Contact">
+      <div class="section-content">
+        <div class="section-text">
+          <h3>Contact Me</h3>
+          <p><strong>Email:</strong> <a href="mailto:konathamgnaneshwarredy@gmail.com">konathamgnaneshwarredy@gmail.com</a></p>
+          <p><strong>Phone Number:</strong> <a href="tel:+919059778259">9059778259</a></p>
+          <p><strong>LinkedIn:</strong>
+            <a href="https://www.linkedin.com/in/konatham-gnaneshwar-reddy-9a206b299" target="_blank" rel="noopener noreferrer">
+            konatham gnaneshwar reddy</a>
+          </p>
+          <p>Open to collaborations, internships, and exciting tech opportunities!</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    &copy; 2025 KONATHAM GNANESHWAR REDDY. All rights reserved.
+  </footer>
+  <script>
+    const navLinks = document.querySelectorAll(".nav-link");
+    const sections = document.querySelectorAll(".section-wrapper");
+
+    try {
+      if (!navLinks.length) throw new Error("Navigation links with class '.nav-link' not found.");
+      if (!sections.length) throw new Error("Sections with class '.section-wrapper' not found.");
+
+      // IntersectionObserver for section visibility and nav link highlight
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            try {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                // Highlight nav link
+                const id = entry.target.id;
+                navLinks.forEach(link => {
+                  if (link.dataset.target === id) {
+                    link.classList.add("active");
+                  } else {
+                    link.classList.remove("active");
+                  }
+                });
+              } else {
+                entry.target.classList.remove("visible");
+              }
+            } catch (innerErr) {
+              console.error("Error processing IntersectionObserver entry:", innerErr);
+            }
+          });
+        },
+        { threshold: 0.6 }
+      );
+
+      sections.forEach(section => {
+        if (section instanceof HTMLElement) {
+          observer.observe(section);
+        } else {
+          console.warn("Skipped observing invalid section element:", section);
+        }
+      });
+
+      // Navigation link click handling
+      navLinks.forEach(link => {
+        if (link instanceof HTMLElement) {
+          link.addEventListener("click", function (e) {
+            try {
+              e.preventDefault();
+              const targetId = this.getAttribute("data-target");
+              if (!targetId) throw new Error("data-target attribute missing in nav link.");
+              const targetElem = document.getElementById(targetId);
+              if (!targetElem) throw new Error(`Target element with id '${targetId}' not found.`);
+              targetElem.scrollIntoView({ behavior: 'smooth' });
+            } catch (clickErr) {
+              console.error("Error handling nav link click:", clickErr);
+            }
+          });
+        } else {
+          console.warn("Skipped invalid nav link element:", link);
+        }
+      });
+
+      // Show About immediately on load for UX
+      window.addEventListener('DOMContentLoaded', () => {
+        const aboutSection = document.getElementById('about');
+        if (aboutSection) aboutSection.classList.add('visible');
+        navLinks.forEach(link => {
+          if(link.dataset.target === 'about') link.classList.add('active');
+          else link.classList.remove('active');
+        });
+      });
+
+    } catch (err) {
+      console.error("Portfolio navigation script error:", err);
+    }
+  </script>
+</body>
+</html>
